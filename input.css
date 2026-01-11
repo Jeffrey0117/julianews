@@ -1,0 +1,123 @@
+/* ---------------------- Google fonts --------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Noto+Sans+HK:wght@100..900&display=swap");
+
+/* --------------- tailwind css ------------------*/
+
+@import "tailwindcss";
+
+@theme {
+  /* font family */
+  --font-hk: "Noto Sans HK", sans-serif;
+  --font-spartan: "League Spartan", sans-serif;
+  --transition-smooth: 0.35s;
+}
+
+/* ------------------ Global CSS ---------------------*/
+
+html {
+  /* font-size: 0.52vw; */
+  @apply lg:text-[0.520vw] md:text-[55%] text-[2.32vw];
+}
+
+body {
+  @apply font-hk font-normal md:text-[1.6rem] text-[1.5rem] tracking-[0.095em] leading-[1.35] text-[#4D4D4D] bg-white;
+}
+
+/* container */
+.container {
+  @apply mx-auto px-[2rem] lg:max-w-[146.5rem] md:max-w-[76.8rem] max-w-[64rem];
+}
+
+/* container_full */
+.container_full {
+  @apply mx-auto md:px-0 px-[2rem] lg:max-w-full md:max-w-[76.8rem] max-w-[64rem];
+}
+
+.menu_container {
+  @apply mx-auto px-[2rem] lg:max-w-fit md:max-w-[76.8rem] max-w-[64rem];
+}
+
+/* title_1 */
+.title_1 {
+  @apply font-spartan font-light md:text-[6.4rem] text-[3.6rem] leading-[1] tracking-[0];
+}
+
+/* title_2 */
+.title_2 {
+  @apply font-semibold whitespace-nowrap md:text-[2.4rem] text-[1.8rem] leading-[1] tracking-[0.1em];
+}
+
+/* text_24 */
+.text_24 {
+  @apply md:text-[2.4rem] text-[1.8rem];
+}
+
+/* text_32 */
+.text_32 {
+  @apply md:text-[3.2rem] text-[1.8rem];
+}
+
+/* heading */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply block tracking-normal;
+}
+
+/* btn */
+.btn {
+  @apply hover:bg-[#DBC8B7] hover:border-[#DBC8B7] inline-flex whitespace-nowrap items-center justify-center px-[3rem] md:h-[4.8rem] h-[4rem] transition-all duration-350 gap-[1rem] border border-[#4D4D4D] relative bg-transparent  font-medium md:text-[1.6rem] text-[1.5rem] tracking-[0.095em] text-[#4D4D4D] hover:text-[#4D4D4D] no-underline;
+}
+
+.btn img {
+  @apply object-contain transition-all duration-350;
+}
+
+.btn.v2 {
+  @apply rounded-full hover:bg-[#DBC8B7] hover:border-[#DBC8B7] hover:text-[#4D4D4D] px-[3rem] text-[#DBC8B7] border-[#DBC8B7];
+}
+
+.btn.green {
+  @apply hover:bg-[#DBC8B7] hover:text-[#4d4d4d] text-[#DBC8B7] border-[#DBC8B7];
+}
+
+.btn.yellow {
+  @apply hover:bg-[#DBC8B7] hover:border-[#DBC8B7] hover:text-[#4D4D4D] bg-[#DBC8B7] text-[#4d4d4d] border-[#DBC8B7];
+}
+
+.btn.dark {
+  @apply hover:bg-[#DBC8B7] hover:border-[#DBC8B7] hover:text-[#4D4D4D] text-[#4d4d4d] border-[#4d4d4d];
+}
+
+.btn.white {
+  @apply hover:bg-[#DBC8B7] hover:border-[#DBC8B7] hover:text-[#4D4D4D] text-white border-white;
+}
+
+.btn.black {
+  @apply rounded-full bg-black hover:bg-[#DBC8B7] hover:border-[#DBC8B7] hover:text-[#4D4D4D] px-[3rem] text-[#DBC8B7] border-[#DBC8B7];
+}
+
+.btn:hover img {
+  filter: brightness(0) saturate(100%) invert(28%) sepia(1%) saturate(576%)
+    hue-rotate(95deg) brightness(99%) contrast(90%);
+}
+
+/* checkbox */
+.checkbox.active .check {
+  @apply bg-[#DBC8B7] border-[#DBC8B7];
+}
+
+.bn4_none:before,
+.bn4_none:after {
+  display: none;
+}
+
+
+/* font */
+
+.font-spartan {
+  @apply font-spartan
+}

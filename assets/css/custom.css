@@ -1,0 +1,23 @@
+.bg_grad_black_l {
+  background: linear-gradient(90deg, rgba(136, 136, 136, 0) 0%, #888888 100%);
+}
+
+.bg_grad_black_r {
+  background: linear-gradient(90deg, #888888 0%, rgba(136, 136, 136, 0) 100%);
+}
+
+.bg_grad_white_l {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+}
+
+.bg_grad_white_r {
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.bg_gradient_black_y {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 35.03%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
