@@ -4,6 +4,13 @@
     "tailwindcss": "^4.1.11"
   },
   "scripts": {
-    "dev": "tailwindcss -i input.css -o ./assets/css/style.css --watch"
+    "dev": "concurrently \"npm run css\" \"npm run serve\"",
+    "css": "tailwindcss -i input.css -o ./assets/css/style.css --watch",
+    "serve": "live-server --port=3000",
+    "build": "tailwindcss -i input.css -o ./assets/css/style.css --minify"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "live-server": "^1.2.2"
   }
 }
