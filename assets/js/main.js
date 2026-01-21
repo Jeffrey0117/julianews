@@ -171,15 +171,15 @@ $(document).ready(function () {
     $('.nice-select').niceSelect();
 
     // ======================================
-    // 浮動預約按鈕組件
+    // 客服按鈕展開/收合
     // ======================================
-    const floatingWidget = {
-        widget: document.getElementById('floating-contact-widget'),
-        toggleBtn: document.getElementById('widget-toggle-btn'),
-        contactList: document.getElementById('widget-contact-list'),
+    const serviceToggle = {
+        toggleBtn: document.getElementById('service-toggle-btn'),
+        serviceList: document.getElementById('service-list'),
+        fixedButtons: document.querySelector('.fixed-buttons'),
 
         init: function() {
-            if (!this.widget || !this.toggleBtn || !this.contactList) {
+            if (!this.toggleBtn || !this.serviceList) {
                 return;
             }
             this.attachEventListeners();
@@ -188,40 +188,41 @@ $(document).ready(function () {
         attachEventListeners: function() {
             const self = this;
 
-            // 點擊預約按鈕切換聯絡清單
-            this.toggleBtn.addEventListener('click', function() {
-                self.toggleContactList();
+            // 點擊客服按鈕切換列表
+            this.toggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                self.toggleServiceList();
             });
 
-            // 點擊外部隱藏清單
+            // 點擊外部隱藏列表
             document.addEventListener('click', function(e) {
-                if (!self.widget.contains(e.target) && self.contactList.classList.contains('visible')) {
-                    self.hideContactList();
+                if (self.fixedButtons && !self.fixedButtons.contains(e.target) && self.serviceList.classList.contains('visible')) {
+                    self.hideServiceList();
                 }
             });
         },
 
-        toggleContactList: function() {
-            if (this.contactList.classList.contains('visible')) {
-                this.hideContactList();
+        toggleServiceList: function() {
+            if (this.serviceList.classList.contains('visible')) {
+                this.hideServiceList();
             } else {
-                this.showContactList();
+                this.showServiceList();
             }
         },
 
-        showContactList: function() {
-            this.contactList.classList.add('visible');
+        showServiceList: function() {
+            this.serviceList.classList.add('visible');
             this.toggleBtn.setAttribute('aria-expanded', 'true');
         },
 
-        hideContactList: function() {
-            this.contactList.classList.remove('visible');
+        hideServiceList: function() {
+            this.serviceList.classList.remove('visible');
             this.toggleBtn.setAttribute('aria-expanded', 'false');
         }
     };
 
-    // 初始化浮動預約按鈕
-    floatingWidget.init();
+    // 初始化客服按鈕
+    serviceToggle.init();
 
 })
 
