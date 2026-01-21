@@ -170,5 +170,58 @@ $(document).ready(function () {
     // niceSelect
     $('.nice-select').niceSelect();
 
+    // ======================================
+    // 浮動預約按鈕組件
+    // ======================================
+    const floatingWidget = {
+        widget: document.getElementById('floating-contact-widget'),
+        toggleBtn: document.getElementById('widget-toggle-btn'),
+        contactList: document.getElementById('widget-contact-list'),
+
+        init: function() {
+            if (!this.widget || !this.toggleBtn || !this.contactList) {
+                return;
+            }
+            this.attachEventListeners();
+        },
+
+        attachEventListeners: function() {
+            const self = this;
+
+            // 點擊預約按鈕切換聯絡清單
+            this.toggleBtn.addEventListener('click', function() {
+                self.toggleContactList();
+            });
+
+            // 點擊外部隱藏清單
+            document.addEventListener('click', function(e) {
+                if (!self.widget.contains(e.target) && self.contactList.classList.contains('visible')) {
+                    self.hideContactList();
+                }
+            });
+        },
+
+        toggleContactList: function() {
+            if (this.contactList.classList.contains('visible')) {
+                this.hideContactList();
+            } else {
+                this.showContactList();
+            }
+        },
+
+        showContactList: function() {
+            this.contactList.classList.add('visible');
+            this.toggleBtn.setAttribute('aria-expanded', 'true');
+        },
+
+        hideContactList: function() {
+            this.contactList.classList.remove('visible');
+            this.toggleBtn.setAttribute('aria-expanded', 'false');
+        }
+    };
+
+    // 初始化浮動預約按鈕
+    floatingWidget.init();
+
 })
 
