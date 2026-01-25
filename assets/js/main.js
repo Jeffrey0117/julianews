@@ -59,6 +59,29 @@ $(document).ready(function () {
         $(this).toggleClass('active');
     });
 
+    // dropdown-btn
+    $('.dropdown-btn').on('click', function (e) {
+        e.preventDefault()
+    });
+
+
+    // to_reserve_btn
+    $('.to_reserve_btn').on('click', function (e) {
+        e.preventDefault();
+
+        const headerHeight = $('.header').outerHeight() || 0;
+
+        $('html, body').animate({
+            scrollTop: $('#contact').offset().top - headerHeight
+        }, 700);
+
+
+        $('body').removeClass('menu_active');
+        $('.hamburgar_btn').removeClass('active');
+    });
+
+
+    // screen_up
     $(window).on('scroll', function () {
         if ($(this).scrollTop() > 200) {
             $('body').addClass('screen_up');
@@ -67,12 +90,32 @@ $(document).ready(function () {
         }
     });
 
+    // got_to_top
+    $('.got_to_top').on('click', function (e) {
+        e.preventDefault();
+        $('html, body').animate({ scrollTop: 0 }, 800);
+    });
+
+    function checkScroll() {
+        if ($(window).scrollTop() > 200) {
+            $('.got_to_top').addClass('scrolled_up');
+        } else {
+            $('.got_to_top').removeClass('scrolled_up');
+        }
+    }
+
+    // Run on scroll
+    $(window).on('scroll', checkScroll);
+
+    // Run on refresh / page load
+    $(document).ready(checkScroll);
+
+
     // hamburgar_btn
     $('.hamburgar_btn').on('click', function () {
         $('body').toggleClass('menu_active');
         $(this).toggleClass('active');
     });
-
 
 
     // flatpickr js
@@ -143,6 +186,33 @@ $(document).ready(function () {
                 slidesPerView: 5,
             }
         }
+    });
+
+    // jq-tabs
+    $('.jq-tabs').each(function () {
+        const $tabWrap = $(this);
+        const $buttons = $tabWrap.find('[data-tab]');
+        const $contents = $tabWrap.find('[data-tab-content]');
+
+        // hide all contents
+        $contents.hide();
+
+        // activate first tab by default
+        const firstTab = $buttons.first().data('tab');
+        $buttons.first().addClass('active');
+        $contents.filter('[data-tab-content="' + firstTab + '"]').show();
+
+        // click handler
+        $buttons.on('click', function () {
+            const tabId = $(this).data('tab');
+
+            $buttons.removeClass('active');
+            $(this).addClass('active');
+
+            $contents.hide();
+            $contents.filter('[data-tab-content="' + tabId + '"]').show();
+        });
+
     });
 
 

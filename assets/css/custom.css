@@ -21,3 +21,110 @@
     rgba(0, 0, 0, 0) 100%
   );
 }
+
+.bg_grad_black_v2 {
+  background: linear-gradient(
+    90deg,
+    rgba(136, 136, 136, 0) 0%,
+    #888888 50%,
+    rgba(136, 136, 136, 0) 100%
+  );
+}
+
+/* ============== Video box ================== */
+.video__wrapper {
+  position: relative;
+}
+
+video {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+.video__play-button {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  z-index: 2;
+  transition: all 200ms ease-in-out;
+}
+
+.video__play-button-icon {
+  width: 7.4rem;
+  transition: all 200ms ease-in-out;
+}
+
+.video__play-button-icon--play polygon {
+  transform-origin: 50% 50%;
+  transition: all 200ms ease-in-out;
+}
+
+.video__play-button-icon--play:hover polygon {
+  transform: scale(1.5);
+}
+
+.video__play-button[data-button-state="pause"] .video__play-button-icon--pause {
+  display: none;
+}
+
+.video__play-button[data-button-state="play"] .video__play-button-icon--play {
+  display: none;
+}
+
+.video__play-button[data-button-state="play"] .video__play-button-icon {
+  opacity: 0;
+}
+
+.video__play-button[data-button-state="play"]:hover .video__play-button-icon {
+  opacity: 1;
+}
+
+.video__play-button[data-button-state="play"] {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.video__fullscreen-button {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 0;
+  -webkit-appearance: none;
+  z-index: 3;
+  transition: all 200ms ease-in-out;
+}
+
+.video__fullscreen-icon {
+  padding: 1rem;
+  display: block;
+  vertical-align: top;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 200ms ease-in-out;
+}
+
+.video__wrapper[data-state="pause"] .video__fullscreen-icon,
+.video__wrapper[data-state="play"]:hover .video__fullscreen-icon {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video__fullscreen-icon polygon {
+  fill: currentColor;
+}
