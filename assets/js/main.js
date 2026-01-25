@@ -67,27 +67,6 @@ $(document).ready(function () {
         }
     });
 
-    // got_to_top
-    $('.got_to_top').on('click', function (e) {
-        e.preventDefault();
-        $('html, body').animate({ scrollTop: 0 }, 800);
-    });
-
-    function checkScroll() {
-        if ($(window).scrollTop() > 200) {
-            $('.got_to_top').addClass('scrolled_up');
-        } else {
-            $('.got_to_top').removeClass('scrolled_up');
-        }
-    }
-
-    // Run on scroll
-    $(window).on('scroll', checkScroll);
-
-    // Run on refresh / page load
-    $(document).ready(checkScroll);
-
-
     // hamburgar_btn
     $('.hamburgar_btn').on('click', function () {
         $('body').toggleClass('menu_active');
@@ -169,60 +148,6 @@ $(document).ready(function () {
 
     // niceSelect
     $('.nice-select').niceSelect();
-
-    // ======================================
-    // 客服按鈕展開/收合
-    // ======================================
-    const serviceToggle = {
-        toggleBtn: document.getElementById('service-toggle-btn'),
-        serviceList: document.getElementById('service-list'),
-        fixedButtons: document.querySelector('.fixed-buttons'),
-
-        init: function() {
-            if (!this.toggleBtn || !this.serviceList) {
-                return;
-            }
-            this.attachEventListeners();
-        },
-
-        attachEventListeners: function() {
-            const self = this;
-
-            // 點擊客服按鈕切換列表
-            this.toggleBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                self.toggleServiceList();
-            });
-
-            // 點擊外部隱藏列表
-            document.addEventListener('click', function(e) {
-                if (self.fixedButtons && !self.fixedButtons.contains(e.target) && self.serviceList.classList.contains('visible')) {
-                    self.hideServiceList();
-                }
-            });
-        },
-
-        toggleServiceList: function() {
-            if (this.serviceList.classList.contains('visible')) {
-                this.hideServiceList();
-            } else {
-                this.showServiceList();
-            }
-        },
-
-        showServiceList: function() {
-            this.serviceList.classList.add('visible');
-            this.toggleBtn.setAttribute('aria-expanded', 'true');
-        },
-
-        hideServiceList: function() {
-            this.serviceList.classList.remove('visible');
-            this.toggleBtn.setAttribute('aria-expanded', 'false');
-        }
-    };
-
-    // 初始化客服按鈕
-    serviceToggle.init();
 
 })
 
