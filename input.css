@@ -16,7 +16,7 @@
 
 html {
   /* font-size: 0.52vw; */
-  @apply lg:text-[0.520vw] md:text-[55%] text-[2.32vw];
+  @apply lg:text-[max(0.520vw,8.75px)] md:text-[55%] text-[max(2.32vw,9.34px)];
 }
 
 body {

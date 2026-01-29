@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"npm run css\" \"npm run serve\"",
     "css": "tailwindcss -i input.css -o ./assets/css/style.css --watch",
-    "serve": "live-server --port=3000",
+    "serve": "live-server --port=4000",
     "build": "tailwindcss -i input.css -o ./assets/css/style.css --minify"
   },
   "devDependencies": {

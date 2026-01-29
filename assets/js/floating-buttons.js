@@ -60,6 +60,15 @@
             visibility: hidden;
             margin-top: 0;
         }
+
+        /* 確保浮動按鈕在小視窗不會縮太小 */
+        .fixed-buttons .reserve-btn,
+        .fixed-buttons .service-btn,
+        .fixed-buttons .got_to_top,
+        .fixed-buttons .service-list a {
+            min-width: 45px;
+            min-height: 45px;
+        }
     `;
 
     // HTML 模板
@@ -68,7 +77,7 @@
 
             <!-- 預約按鈕 -->
             <a href="${CONFIG.reserveLink}"
-                class="reserve-btn group size-[4.5rem] bg-[#DBC8B7] hover:bg-[#c9ab96] transition-all duration-300 flex items-center justify-center rounded-full border border-[#DBC8B7] hover:border-[#c9ab96]">
+                class="reserve-btn group size-[4.5rem] bg-[#c4a996] hover:bg-[#b09480] transition-all duration-300 flex items-center justify-center rounded-full border border-[#c4a996] hover:border-[#b09480]">
                 <span class="text-white text-[1.2rem] font-bold">預約</span>
             </a>
 
